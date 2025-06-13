@@ -5,47 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pengaduan Masyarakat</title>
     @vite('resources/css/app.css')
-    <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script> {{-- Ganti dengan FontAwesome Kit ID --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-blue-100 via-white to-blue-50 min-h-screen flex flex-col">
+<body class="bg-gradient-to-br from-white via-blue-50 to-blue-100 min-h-screen flex flex-col text-gray-800">
 
     {{-- HERO --}}
-    <section class="relative min-h-[80vh] flex items-center justify-center px-6">
-        <div class="absolute inset-0 bg-gradient-to-br from-blue-200 via-white to-blue-100 opacity-40 blur-xl"></div>
+    <section class="relative min-h-[85vh] flex items-center justify-center px-6 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-300/30 to-white/50 blur-3xl"></div>
 
-        <div class="relative z-10 max-w-4xl w-full text-center p-10 bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800">Selamat Datang!</h1>
-            <p class="mt-4 text-lg text-gray-600">Sampaikan aspirasi, keluhan, atau saran Anda dengan mudah dan aman. Aplikasi ini hadir untuk pelayanan publik yang lebih baik.</p>
+        <div class="relative z-10 max-w-5xl text-center p-10 bg-white/60 backdrop-blur-md rounded-3xl shadow-2xl border border-white/20">
+            <h1 class="text-5xl font-extrabold text-gray-900 leading-tight drop-shadow-sm">
+                Selamat Datang di<br>
+                <span class="text-blue-600">Pengaduan Masyarakat</span>
+            </h1>
+            <p class="mt-4 text-lg text-gray-700">Sampaikan aspirasi, keluhan, atau saran Anda secara online. Praktis, aman, dan transparan.</p>
 
             <div class="flex justify-center gap-4 mt-8 flex-wrap">
-                <a href="/login" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 transition hover:scale-105 duration-200">
-                    <i class="fas fa-sign-in-alt mr-2"></i> Login
+                <a href="/login" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 hover:scale-105 transition-all">
+                    <i class="fas fa-sign-in-alt mr-2"></i> Masuk
                 </a>
-                <a href="/register" class="px-6 py-3 bg-green-500 text-white font-semibold rounded-full shadow-md hover:bg-green-600 transition hover:scale-105 duration-200">
-                    <i class="fas fa-user-plus mr-2"></i> Register
+                <a href="/register" class="px-6 py-3 bg-green-500 text-white font-semibold rounded-full shadow-lg hover:bg-green-600 hover:scale-105 transition-all">
+                    <i class="fas fa-user-plus mr-2"></i> Daftar
                 </a>
             </div>
         </div>
     </section>
 
     {{-- FITUR --}}
-    <section class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12"><span class="text-yellow-500">✨</span> Fitur Unggulan</h2>
-            <div class="grid md:grid-cols-3 gap-6">
+    <section class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-14">
+                <span class="text-blue-600">🚀</span> Fitur Unggulan
+            </h2>
+            <div class="grid gap-10 md:grid-cols-3">
                 @foreach([
-                    ['icon' => 'bolt', 'title' => 'Pelaporan Kilat', 'desc' => 'Laporkan masalah hanya dalam beberapa langkah dengan antarmuka yang user-friendly.'],
-                    ['icon' => 'shield-alt', 'title' => 'Keamanan Terjamin', 'desc' => 'Data Anda aman dengan sistem perlindungan berlapis dan enkripsi modern.'],
-                    ['icon' => 'eye', 'title' => 'Status Real-Time', 'desc' => 'Lihat perkembangan pengaduan secara langsung dari dashboard pengguna.']
+                    ['icon' => 'bolt', 'title' => 'Pelaporan Kilat', 'desc' => 'Laporkan masalah hanya dalam beberapa langkah dengan antarmuka yang ramah pengguna.'],
+                    ['icon' => 'shield-alt', 'title' => 'Keamanan Terjamin', 'desc' => 'Data Anda aman dengan enkripsi dan autentikasi berlapis.'],
+                    ['icon' => 'eye', 'title' => 'Status Real-Time', 'desc' => 'Pantau perkembangan laporan langsung melalui dashboard pribadi.']
                 ] as $fitur)
-                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1 duration-200">
-                        <i class="fas fa-{{ $fitur['icon'] }} text-3xl text-blue-600 mb-4"></i>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">{{ $fitur['title'] }}</h3>
+                    <div class="bg-gradient-to-br from-white to-blue-50 border border-gray-200 rounded-xl p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="text-blue-600 text-4xl mb-4">
+                            <i class="fas fa-{{ $fitur['icon'] }}"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">{{ $fitur['title'] }}</h3>
                         <p class="text-gray-600">{{ $fitur['desc'] }}</p>
                     </div>
                 @endforeach
@@ -54,21 +62,21 @@
     </section>
 
     {{-- ABOUT --}}
-    <section class="bg-gradient-to-r from-blue-50 via-white to-blue-50 py-16">
+    <section class="py-20 bg-gradient-to-r from-blue-50 via-white to-blue-50">
         <div class="max-w-5xl mx-auto text-center px-6">
-            <h2 class="text-3xl font-bold text-gray-800 mb-4">Tentang Aplikasi Ini</h2>
-            <p class="text-lg text-gray-600 leading-relaxed">
-                Aplikasi ini merupakan jembatan komunikasi antara masyarakat dan instansi pemerintah. Dibuat dengan teknologi modern untuk memastikan kemudahan, kecepatan, dan kejelasan dalam proses pelaporan serta penanganan pengaduan Anda.
+            <h2 class="text-3xl font-bold mb-4 text-gray-800">Tentang Aplikasi Ini</h2>
+            <p class="text-lg text-gray-700 leading-relaxed">
+                Aplikasi ini menjadi jembatan digital antara masyarakat dan instansi pemerintah. Dibangun dengan teknologi web modern untuk menyederhanakan proses pelaporan, mempercepat respons, dan meningkatkan akuntabilitas publik.
             </p>
         </div>
     </section>
 
     {{-- FOOTER --}}
-    <footer class="bg-gray-100 border-t border-gray-200 py-6 text-center text-sm text-gray-500">
-        <p>&copy; {{ date('Y') }} Sistem Pengaduan Masyarakat. Dibuat dengan ❤️ oleh Tim Instansi.</p>
+    <footer class="bg-gray-100 border-t border-gray-300 py-6 text-center text-sm text-gray-600">
+        <p>&copy; {{ date('Y') }} <span class="font-semibold text-blue-600">Sistem Pengaduan Masyarakat</span>. Dibuat dengan ❤️ oleh Tim Instansi.</p>
         <p class="mt-1">
-            <a href="#" class="text-blue-600 hover:underline">Kebijakan Privasi</a> |
-            <a href="#" class="text-blue-600 hover:underline">Syarat & Ketentuan</a>
+            <a href="#" class="text-blue-500 hover:underline">Kebijakan Privasi</a> |
+            <a href="#" class="text-blue-500 hover:underline">Syarat & Ketentuan</a>
         </p>
     </footer>
 
