@@ -68,17 +68,19 @@
                                 {{ ucfirst($pengaduan->status) }}
                             </span>
                         </div>
-                        <div class="flex gap-3">
-                            <a href="{{ route('instansi.pengaduan.show', $pengaduan->id) }}" class="bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded-lg text-sm font-medium shadow transition">
-                                👁️ Detail
-                            </a>
+<div class="flex gap-3">
+    <a href="{{ route('instansi.pengaduan.show', $pengaduan->id) }}" class="bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded-lg text-sm font-medium shadow transition">
+        👁️ Detail
+    </a>
 
-                            @if(in_array($pengaduan->status, ['dikirim', 'diproses']))
-                                <a href="{{ route('instansi.pengaduan.edit', $pengaduan->id) }}" class="bg-yellow-100 hover:bg-yellow-200 text-yellow-800 px-4 py-2 rounded-lg text-sm font-medium shadow transition">
-                                    ✏️ Edit
-                                </a>
-                            @endif
-                        </div>
+    @if($pengaduan->status === 'dikirim')
+        <a href="{{ route('instansi.pengaduan.edit', $pengaduan->id) }}"
+           class="bg-yellow-100 hover:bg-yellow-200 text-yellow-800 px-4 py-2 rounded-lg text-sm font-medium shadow transition">
+            ✏️ Edit
+        </a>
+    @endif
+</div>
+
                     </div>
 
                     <p class="text-gray-700 mb-3">{{ \Illuminate\Support\Str::limit($pengaduan->isi, 150) }}</p>
