@@ -74,17 +74,24 @@
                                         @endif
                                     </span>
                                 </td>
-                                <td class="p-4 space-x-2">
-                                    <a href="/admin/pengaduan/{{ $pengaduan->id }}" class="text-blue-600 hover:underline font-semibold">
-                                        <i class="fas fa-eye mr-1"></i>Lihat
-                                    </a>
-                                    <form method="POST" action="/admin/pengaduan/{{ $pengaduan->id }}" class="inline">
-                                        @csrf @method('DELETE')
-                                        <button onclick="return confirm('Yakin ingin menghapus pengaduan ini?')" class="text-red-600 hover:underline font-semibold">
-                                            <i class="fas fa-trash mr-1"></i>Hapus
-                                        </button>
-                                    </form>
-                                </td>
+<td class="p-4 space-x-2">
+    <a href="/admin/pengaduan/{{ $pengaduan->id }}" class="text-blue-600 hover:underline font-semibold">
+        <i class="fas fa-eye mr-1"></i>Lihat
+    </a>
+
+    {{-- Tombol Edit --}}
+    <a href="/admin/pengaduan/{{ $pengaduan->id }}/edit" class="text-yellow-500 hover:underline font-semibold">
+        <i class="fas fa-edit mr-1"></i>Edit
+    </a>
+
+    <form method="POST" action="/admin/pengaduan/{{ $pengaduan->id }}" class="inline">
+        @csrf @method('DELETE')
+        <button onclick="return confirm('Yakin ingin menghapus pengaduan ini?')" class="text-red-600 hover:underline font-semibold">
+            <i class="fas fa-trash mr-1"></i>Hapus
+        </button>
+    </form>
+</td>
+
                             </tr>
                         @empty
                             <tr>
