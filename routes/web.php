@@ -35,7 +35,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/pengaduan', [PengaduanController::class, 'index'])->name('user.pengaduan.index');
     Route::post('/pengaduan', [PengaduanController::class, 'store'])->name('user.pengaduan.store');
     Route::get('/dashboard', [PengaduanController::class, 'dashboard'])->name('user.dashboard');
-    Route::get('/user/pengaduan/{id}', [PengaduanController::class, 'show'])->name('user.pengaduan.show'); // 👁️ Detail pengaduan user
+    Route::get('/user/pengaduan/{id}', [PengaduanController::class, 'show'])->name('user.pengaduan.show');
 });
 
 /*
@@ -46,6 +46,8 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/pengaduan/{id}', [AdminController::class, 'show'])->name('admin.pengaduan.show');
+    Route::get('/admin/pengaduan/{id}/edit', [AdminController::class, 'edit'])->name('admin.pengaduan.edit');
+Route::put('/admin/pengaduan/{id}', [AdminController::class, 'update'])->name('admin.pengaduan.update');
     Route::delete('/admin/pengaduan/{id}', [AdminController::class, 'destroy'])->name('admin.pengaduan.destroy');
 });
 
