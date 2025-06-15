@@ -24,7 +24,7 @@ class InstansiController extends Controller
             $query->whereIn('status', ['dikirim', 'diproses', 'selesai']);
         }
 
-        $pengaduans = $query->latest()->paginate(10); // Pagination
+        $pengaduans = $query->latest()->paginate(10)->appends(request()->query()); // Pagination
 
         return view('instansi.index', compact('pengaduans'));
     }
