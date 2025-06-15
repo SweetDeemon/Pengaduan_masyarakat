@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Edit Pengaduan</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="min-h-screen flex flex-col bg-gradient-to-br from-gray-100 to-white font-sans">
+<body class="min-h-screen flex flex-col bg-slate-900 text-white font-sans">
+
     @include('components.navbar')
 
-    <main class="flex-grow">
-        <div class="max-w-2xl mx-auto mt-12 bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-            <h1 class="text-3xl font-bold text-blue-700 mb-6">✏️ Edit Pengaduan</h1>
+    <main class="flex-grow px-4">
+        <div class="max-w-3xl mx-auto mt-14 bg-slate-800 p-8 rounded-2xl shadow-xl border border-slate-700 transition-all duration-300">
+            <h1 class="text-3xl font-bold text-blue-500 mb-6 flex items-center gap-2">
+                 Edit Pengaduan
+            </h1>
 
             @if(session('error'))
-                <div class="bg-red-100 border border-red-300 text-red-800 p-4 rounded-lg mb-4">
+                <div class="bg-red-500/10 border border-red-400 text-red-300 px-4 py-3 rounded-lg mb-5 shadow">
                     {{ session('error') }}
                 </div>
             @endif
@@ -23,37 +27,38 @@
                 @csrf
                 @method('PUT')
 
-                <div class="mb-5">
-                    <label for="judul" class="block text-sm font-medium text-gray-700">Judul</label>
+                <div class="mb-6">
+                    <label for="judul" class="block text-sm font-semibold mb-1 text-gray-300">Judul Pengaduan</label>
                     <input type="text" name="judul" id="judul" value="{{ old('judul', $pengaduan->judul) }}"
-                        class="w-full mt-1 p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500"
+                        class="w-full bg-slate-900 text-white p-3 rounded-xl border border-slate-600 focus:ring-2 focus:ring-blue-600 focus:outline-none"
                         required>
                 </div>
 
-                <div class="mb-5">
-                    <label for="isi" class="block text-sm font-medium text-gray-700">Isi</label>
-                    <textarea name="isi" id="isi" rows="4"
-                        class="w-full mt-1 p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500"
+                <div class="mb-6">
+                    <label for="isi" class="block text-sm font-semibold mb-1 text-gray-300">Isi Pengaduan</label>
+                    <textarea name="isi" id="isi" rows="5"
+                        class="w-full bg-slate-900 text-white p-3 rounded-xl border border-slate-600 focus:ring-2 focus:ring-blue-600 focus:outline-none"
                         required>{{ old('isi', $pengaduan->isi) }}</textarea>
                 </div>
 
                 <div class="flex justify-between items-center mt-8">
-                    <a href="/instansi" class="text-sm text-gray-600 hover:underline">← Batal</a>
+                    <a href="/instansi" class="text-sm text-gray-400 hover:text-white transition">← Batal</a>
                     <button type="submit"
-                        class="bg-green-600 text-white px-5 py-2 rounded-xl hover:bg-green-700 transition shadow">
-                        💾 Simpan Perubahan
+                        class="bg-blue-600 text-white px-6 py-2 rounded-xl hover:bg-blue-700 transition shadow">
+                         Simpan Perubahan
                     </button>
                 </div>
             </form>
         </div>
     </main>
 
-    <footer class="bg-gray-100 border-t border-gray-200 py-6 text-center text-sm text-gray-500">
+    <footer class="bg-slate-900 text-gray-500 border-t border-slate-800 mt-16 py-6 text-center text-sm">
         <p>&copy; {{ date('Y') }} Sistem Pengaduan Masyarakat. Dibuat dengan ❤️ oleh Tim Instansi.</p>
         <p class="mt-1">
-            <a href="#" class="text-blue-600 hover:underline">Kebijakan Privasi</a> |
-            <a href="#" class="text-blue-600 hover:underline">Syarat & Ketentuan</a>
+            <a href="#" class="text-blue-400 hover:underline">Kebijakan Privasi</a> |
+            <a href="#" class="text-blue-400 hover:underline">Syarat & Ketentuan</a>
         </p>
     </footer>
+
 </body>
 </html>
