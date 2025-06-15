@@ -38,7 +38,7 @@
         @endif
 
         {{-- Pencarian & Filter --}}
-        <form method="GET" action="{{ route('user.dashboard') }}"
+        <form method="GET" action="{{ route('instansi.dashboard') }}"
               class="mb-8 flex flex-col md:flex-row md:items-center gap-4">
             <input type="text" name="search" value="{{ request('search') }}"
                    placeholder="Cari judul pengaduan..."
